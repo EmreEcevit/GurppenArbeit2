@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 
@@ -10,11 +11,20 @@ public class Layout extends JFrame {
 	private JButton newGame;
 	private Container button;
 	
+	private int count;
+	private JTextArea counter;
+	
+	
 	public Layout(Controller c, int[][] zufallM){
 		
 		this.button = new Container();
 		this.buttons = new JButton[5][5];
 		
+		this.count = 0;
+		this.counter = new JTextArea("Moves: " + this.count);
+		this.counter.enable(false);
+		
+		this.setTitle("Lights Out Game");
 		this.setSize(500,500);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -50,6 +60,8 @@ public class Layout extends JFrame {
 	 * @param stelle ein zweideimensionales array
 	 */
 	public void setButtons(int[][] stelle){
+		this.count ++;
+		this.counter.setText("Moves: " + (this.count-1));
 		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 5; j++){
 				if(stelle[i][j] == 1){
