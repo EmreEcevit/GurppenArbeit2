@@ -1,7 +1,5 @@
-package frassl.GurppenArbeit2;
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 
@@ -12,10 +10,9 @@ public class Layout extends JFrame {
 	private JButton newGame;
 	private Container button;
 	
-	public Layout(Controller c, int[][] array){
+	public Layout(Controller c, int[][] zufallM){
 		
 		this.button = new Container();
-		this.newGame = new JButton("New Game");
 		this.buttons = new JButton[5][5];
 		
 		this.setSize(500,500);
@@ -37,18 +34,11 @@ public class Layout extends JFrame {
 				this.button.add(this.buttons[i][j]).setFocusable(false); // der Focus wird abgestellt damit es nicht blau umrandet ist
 				}
 		}
+		setButtons(zufallM); // die Zufaellig im Model ausgewaehlten buttons werden mittels zufallM übergeben
 		
-		setButtons(array);
-		
-		/* 
-		Buttons werden in den Container Button einzeln hinzugefuegt aber wird in der oberen for schleife erstellt
-		for(int i = 0; i < 5; i++){
-			for(int j = 0; j < 5;j++){
-				this.button.add(this.buttons[i][j]);
-			}
-		}
-		*/
-		
+		/**
+		 * Button wird erstellt und hinzugefuegt fuer das neue starten
+		 */
 		this.newGame = new JButton("New Game");
 		this.newGame.addActionListener(c);
 		this.add(this.newGame, BorderLayout.SOUTH);
