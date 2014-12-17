@@ -1,4 +1,4 @@
-package frassl;
+package frassl.GurppenArbeit2;
 /**
  * die Logik klasse für das Spiel Lightsoff
  * version 17.12.2014
@@ -27,7 +27,7 @@ public class LightsOffModel {
 		for(int i = 0; i<5; i++){
 			
 			for(int j=0;j<5;j++){
-				MArray[i][j]= (int) (Math.random()+1);
+				MArray[i][j]= (int) (Math.random()*2);
 			
 		}
 	}
@@ -46,67 +46,33 @@ public class LightsOffModel {
 			
 		}else{ MArray[x][y]=0;}
 		
-		// Ändern der Werte der Buttons Links und rechts des 
-		// gedrückten buttons...
 		
-		int Xmin= x-1; 
-		int Xplus= x+1;
-		if(x > 0 && x <5){
+		
+		if(x > 0){
+			int Xmin= x-1; 
 			if(MArray[Xmin][y]== 0){
 				MArray[Xmin][y]=1;
-				
 			}else{ MArray[Xmin][y]=0;}
-			
+		}if(x < 4){
+			int Xplus= x+1;
 			if(MArray[Xplus][y]== 0){
 				MArray[Xplus][y]=1;
 				
 			}else{ MArray[Xplus][y]=0;}
 		}
-		if(x ==0){
-			if(MArray[Xplus][y]== 0){
-				MArray[Xplus][y]=1;
-				
-			}else{ MArray[Xplus][y]=0;}
-			
-		}
-		if(x == 5){
-			if(MArray[Xmin][y]== 0){
-				MArray[Xmin][y]=1;
-				
-			}else{ MArray[Xmin][y]=0;}
-			
-			
-		}
 		
-		// Ändern der Werte der Buttons Oberhalb und unterhalb des 
-			// gedrückten buttons...
-		int Ymin= x-1; 
-		int Yplus= x+1;
-		if(x > 0 && x <5){
+		
+		if(y > 0){
+			int Ymin= y-1; 
 			if(MArray[x][Ymin]== 0){
 				MArray[x][Ymin]=1;
-				
 			}else{ MArray[x][Ymin]=0;}
-			
+		}if(y < 4){
+			int Yplus= y+1;
 			if(MArray[x][Yplus]== 0){
 				MArray[x][Yplus]=1;
 				
 			}else{ MArray[x][Yplus]=0;}
-		}
-		if(x ==0){
-			if(MArray[x][Yplus]== 0){
-				MArray[x][Yplus]=1;
-				
-			}else{ MArray[x][Yplus]=0;}
-			
-		}
-		if(x == 5){
-			if(MArray[x][Ymin]== 0){
-				MArray[x][Ymin]=1;
-				
-			}else{ MArray[x][Ymin]=0;}
-			
-			
 		}
 		
 	}

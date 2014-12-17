@@ -1,16 +1,18 @@
+package frassl.GurppenArbeit2;
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
 
+@SuppressWarnings("serial")
 public class Layout extends JFrame {
 	
 	private JButton[][] buttons;
 	private JButton newGame;
 	private Container button;
 	
-	public Layout(Controller c){
+	public Layout(Controller c, int[][] array){
 		
 		this.button = new Container();
 		this.newGame = new JButton("New Game");
@@ -36,14 +38,7 @@ public class Layout extends JFrame {
 				}
 		}
 		
-		
-		
-		/**
-		 * Eine zufällige anzahl an Aktiven gruen leuchtenden buttons
-		 */
-		for(int i = 0; i < (int)(Math.random()*10+6);i++){
-			this.buttons[(int) (Math.random()*5)][(int) (Math.random()*5)].setBackground(Color.GREEN);
-		}
+		setButtons(array);
 		
 		/* 
 		Buttons werden in den Container Button einzeln hinzugefuegt aber wird in der oberen for schleife erstellt
@@ -55,6 +50,7 @@ public class Layout extends JFrame {
 		*/
 		
 		this.newGame = new JButton("New Game");
+		this.newGame.addActionListener(c);
 		this.add(this.newGame, BorderLayout.SOUTH);
 		
 		this.setVisible(true);
@@ -64,7 +60,7 @@ public class Layout extends JFrame {
 	 * bekommt ein zweidimensonales array welches hier neu geschrieben wird
 	 * @param stelle ein zweideimensionales array
 	 */
-	public void setButton(int[][] stelle){
+	public void setButtons(int[][] stelle){
 		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 5; j++){
 				if(stelle[i][j] == 1){
