@@ -20,7 +20,6 @@ public class Controller implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		if (this.v.isNew(e)== true){
-			System.out.println("test");
 			m.newGame();
 			v.setButtons(m.getArray());
 		}else{
