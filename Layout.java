@@ -20,9 +20,7 @@ public class Layout extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.add(button, BorderLayout.CENTER);
 		this.button.setLayout(new GridLayout(5,5));
-		
-		this.add(this.newGame, BorderLayout.SOUTH);
-		
+				
 		/**
 		 * Buttons werdenen erstellt und in das Layout hinzugefuegt
 		 */
